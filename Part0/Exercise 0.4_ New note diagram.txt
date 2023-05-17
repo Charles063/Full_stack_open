@@ -1,0 +1,33 @@
+title Exercise 0.4: New note diagram
+
+Actor User 
+User->Browser: Click on Save button
+Browser->Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note 
+
+note right of Browser: Status Code: 302 
+note right of Browser: Redirect Location: /exampleapp/notes
+Server-->Server: Add new_note to /exampleapp/data.json
+
+Server-->Browser: Redirect to .../exampleapp/notes
+note over Browser: Reload the web page
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+
+Server-->Browser:Fetch HTML
+note over Browser: Render the HTML code
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server-->Browser:Fetch main.css
+note over Browser: Render the CSS code
+Server-->Browser: Fetch main.js
+note over Browser: Render the JS code
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.jason
+
+Server-->Browser:Fetch data.json
+note over Browser: Render the data.json content
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/favico.ico
+Server-->Browser: Fetch favico.ico
+note over Browser: Render the favico.ico content
+Browser ->User: Render the reloded page

@@ -1,0 +1,12 @@
+title Exercise 0.6: New note in Single page app diagram
+
+
+Actor User 
+User->Browser: Click on save button in spa page
+note over Browser: Execute the form submission function in spa.js
+Browser->Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note right of Browser: Content-Type: application/json
+Server-->Browser: Status Code: 201 Created
+note over Browser: Execute the listing event handler function in spa.js
+Browser->User:Render the page with updated content
+
